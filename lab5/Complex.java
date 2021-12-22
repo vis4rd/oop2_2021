@@ -26,7 +26,33 @@ public class Complex
     @Override
     public String toString()
     {
-        return ""+this.re+" + "+this.im+"i";
+    	var result = "";
+    	if(Math.abs(this.re) > 1e-7)  // if this.re != 0, but float :)
+        {
+            result = ""+this.re;
+            if(this.im < 0)
+            {
+                result += " - "+(-this.im)+"i";
+            }
+            else if(this.im > 0)
+            {
+                result += " + "+this.im+"i";
+            }
+        }
+    	else
+        {
+            if(this.im < 0)
+            {
+                result += ""+(-this.im)+"i";
+            }
+            else if(this.im > 0)
+            {
+                result += ""+this.im+"i";
+            }
+            else
+                return "0.0";
+        }
+    	return result;
     }
 
     @Override
